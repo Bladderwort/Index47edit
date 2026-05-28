@@ -2,10 +2,10 @@
 @import "tailwindcss";
 @plugin "@tailwindcss/typography";
 @plugin "daisyui" {
-    themes: false;
+    themes: index47 --default;
 }
 @plugin "daisyui/theme" {
-    name: "forest";
+    name: "index47";
     default: true;
     prefersdark: false;
 "color-scheme": "light";
