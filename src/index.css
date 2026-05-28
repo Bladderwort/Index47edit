@@ -7,9 +7,9 @@
 }
 @plugin "daisyui/theme" {
     name: "forest";
-    default: false;
+    default: true;
     prefersdark: false;
-    "color-scheme": "light";
+"color-scheme": "light";
     --color-base-100: #4d4d4d;
     --color-base-200: #262626;
     --color-base-300: #4d4d4d;
@@ -47,7 +47,7 @@
     color: #d9d9d9;
     font-family: ui-sans-serif, system-ui, sans-serif;
 }
- h1 {
+h1 {
     color: #d9d9d9;
     font-family: ui-sans-serif, system-ui, sans-serif;
 }
@@ -58,4 +58,3 @@
 .prose strong {
     color: #d9d9d9;
 }
-
