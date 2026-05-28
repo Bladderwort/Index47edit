@@ -3,6 +3,8 @@ import {terms} from "../../.velite";
 
 export default function Term() {
     const {slug} = useParams();
+    console.log('slug:', slug);
+    console.log('terms slugs:', terms.map(t => t.slug));
     const term = terms.find(term => term.slug == slug);
 
     return term ? (
