@@ -20,7 +20,7 @@ export default function Index() {
     return (
         <div className="p-8 max-w-3xl mx-auto">
             <div className="flex justify-center mb-8">
-                <img src="../../public/i47.svg" alt="Index47" className="h-24 w-auto" />
+                <img src="/index47v1/i47.svg" alt="Index47" className="h-24 w-auto" />
             </div>
             <article className="prose index-page">
                 <ReactMarkdown
