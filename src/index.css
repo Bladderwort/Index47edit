@@ -1,6 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Itim&display=swap");
 @import "tailwindcss";
-@plugin "./lib/theme.ts";
 @plugin "@tailwindcss/typography";
 @plugin "daisyui" {
     themes: false;

@@ -6,6 +6,6 @@ export default createCatppuccinPlugin(
         
     },
     {
-        default: false
+        default: true
     }
 );
