@@ -28,8 +28,17 @@ jobs:
       - name: Build Vite app
         run: npm run build:vite
 
+      - name: Inspect dist folder
+        run: |
+          ls -la dist
+          find dist | sort | head -50
+
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: dist
+          publish_branch: gh-pages
+          keep_files: false
+          user_name: github-actions[bot]
+          user_email: github-actions[bot]@users.noreply.github.com
