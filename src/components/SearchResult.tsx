@@ -26,8 +26,9 @@ export default function SearchResult({
             <li className="list-row">
                 <div className="list-col-grow">
                     <div>{title}</div>
-                <div className="text-[0.65rem] uppercase font-semibold opacity-60">                        Last Updated on {formattedDate} 
-                    </div>
+                <div className="text-[0.65rem] uppercase font-semibold text-[#d9d9d9]">
+                    Last Updated on __{formattedDate}__
+                        </div>
                 </div>
                 <span className="btn btn-square btn-ghost">
                     <ArrowRight className="size-6" />
