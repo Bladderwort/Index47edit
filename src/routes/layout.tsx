@@ -39,7 +39,7 @@ export default function Layout() {
                             className="h-40 w-auto"
                         />
                     </Link>
-                    <p><small>Your FTC sidekick</small></p>
+                    <p style={{ fontSize: '0.95rem' }}>Your FTC sidekick</p>
                 </div>
 
                 <div className="flex justify-center gap-2 items-center p-3 border-b-2 border-base-content/10">
