@@ -7,4 +7,4 @@ __FTCLib__ is an open-source programming library that provides tools to make rob
 
 
 ---
-<img src="/index47v1/ftclib.png" alt="ftc lib" style="border: 3px solid #9effbd; width: 50%; height: auto;">
+<img src="/Index47/ftclib.png" alt="ftc lib" style="border: 3px solid #9effbd; width: 50%; height: auto;">

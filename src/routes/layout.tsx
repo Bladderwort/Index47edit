@@ -34,7 +34,7 @@ export default function Layout() {
                 <div className="p-4 border-b-2 border-base-content/10 text-center">
                     <Link to="/" className="btn btn-ghost p-8 uppercase font-mono">
                         <img
-                            src="/index47v1/index47.svg"
+                            src="/Index47/index47.svg"
                             alt="Index 47 Logo"
                             className="h-40 w-auto"
                         />
@@ -44,7 +44,7 @@ export default function Layout() {
 
                 <div className="flex justify-center gap-2 items-center p-3 border-b-2 border-base-content/10">
                     <a
-                        href="https://github.com/index47ftc/index47v1"
+                        href="https://github.com/index47ftc/Index47"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="btn btn-outline btn-neutral shadow-none btn-square"
@@ -116,7 +116,7 @@ export default function Layout() {
                                     {/* ONLY logo here */}
                                     <div className="p-6">
                                         <img
-                                            src="/index47v1/i47.svg"
+                                            src="/Index47/i47.svg"
                                             alt="Index 47 Logo"
                                             className="h-24 w-auto"
                                         />
