@@ -26,7 +26,7 @@ export default function SearchResult({
             <li className="list-row">
                 <div className="list-col-grow">
                     <div>{title}</div>
-                <div className="text-[0.40rem] uppercase font-semibold italic text-[#d9d9d9]">
+                <div className="text-[0.47rem] uppercase font-semibold italic text-[#d9d9d9]">
                     Last Updated on {formattedDate}
                         </div>
                 </div>
