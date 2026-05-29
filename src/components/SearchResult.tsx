@@ -26,7 +26,7 @@ export default function SearchResult({
             <li className="list-row">
                 <div className="list-col-grow">
                     <div>{title}</div>
-                    <div className="text-xxs uppercase font-semibold opacity-60">
+                    <div className="text-xs uppercase font-semibold opacity-60">
                         {formattedDate}
                     </div>
                 </div>
