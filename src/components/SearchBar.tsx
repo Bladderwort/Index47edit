@@ -7,7 +7,7 @@ import {useAtom} from "jotai";
 import {searchQueryAtom} from "../lib/state";
 import Fuse from "fuse.js";
 
-export default function SearchBar() {
+export default function SearchBar({ showAllIfEmpty = true }: { showAllIfEmpty?: boolean }) {
     const searchBar = useRef<HTMLInputElement>(null);
     useHotkeys("slash", e => {
         e.preventDefault();
@@ -27,8 +27,7 @@ export default function SearchBar() {
     const [searchQuery, setSearchQuery] = useAtom(searchQueryAtom);
 
     const searchResults = useMemo(() => fuse.search(searchQuery), [searchQuery, fuse]);
-
-    console.log(searchResults);
+    const hasQuery = searchQuery.trim().length > 0;
 
     return (
         <div className="flex min-h-0 flex-1 flex-col p-4">
@@ -59,13 +58,13 @@ export default function SearchBar() {
                 )}
             </div>
 
-            {searchResults.length === 0 && searchQuery !== "" ? (
+            {searchResults.length === 0 && hasQuery ? (
                 <div className="mt-4 p-8 border border-base-content/10 bg-base-300 rounded-box text-center">
                     <p className="opacity-50 italic">Nothing Found</p>
                 </div>
-            ) : (
+            ) : (showAllIfEmpty || hasQuery ? (
                 <ul className="list mt-4 min-h-0 overflow-y-auto border border-base-content/10 bg-base-300 rounded-box">
-                    {searchQuery
+                    {hasQuery
                         ? searchResults.map(term => (
                             <SearchResult
                                 key={term.item.slug}
@@ -83,7 +82,11 @@ export default function SearchBar() {
                             />
                         ))}
                 </ul>
-            )}
+            ) : (
+                <div className="mt-4 p-8 border border-base-content/10 bg-base-300 rounded-box text-center">
+                    <p className="opacity-50 italic">Type to search</p>
+                </div>
+            ))}
         </div>
     );
 }

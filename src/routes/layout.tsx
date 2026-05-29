@@ -2,7 +2,9 @@ import {Link, Outlet, useLocation} from "react-router";
 import {SiDiscord, SiGithub} from "@icons-pack/react-simple-icons";
 import SearchBar from "../components/SearchBar";
 import {useEffect, useState} from "react";
-import {HelpCircle} from "lucide-react";
+import {HelpCircle, Search} from "lucide-react";
+import {useAtom} from "jotai";
+import {searchQueryAtom} from "../lib/state";
 
 const CONTRIBUTORS = [
     "MikeyIsANerd",
@@ -14,6 +16,8 @@ const CONTRIBUTORS = [
 
 export default function Layout() {
     const [tab, setTab] = useState("main");
+    const [mobileSearchOpen, setMobileSearchOpen] = useState(false);
+    const [searchQuery] = useAtom(searchQueryAtom);
 
     const location = useLocation();
     const isHomePage = location.pathname === "/";
@@ -29,7 +33,7 @@ export default function Layout() {
         <div className="flex min-h-screen flex-col md:flex-row">
 
             {/* Sidebar */}
-            <div className="flex flex-col w-full md:w-auto md:sticky md:top-0 md:h-screen md:min-w-7/24 bg-base-200 border-b-2 border-base-content/10 md:border-b-0 md:border-r-2">
+            <div className="hidden md:flex flex-col w-full md:w-auto md:sticky md:top-0 md:h-screen md:min-w-7/24 bg-base-200 border-b-2 border-base-content/10 md:border-b-0 md:border-r-2">
 
                 <div className="p-4 border-b-2 border-base-content/10 text-center">
                     <Link to="/" className="btn btn-ghost p-6 md:p-8 uppercase font-mono w-full">
@@ -80,27 +84,43 @@ export default function Layout() {
                 {isHomePage ? (
                     <>
                         {/* Tabs */}
-                        <div className="flex justify-end border-b-2 border-base-content/10 font-mono">
+                        <div className="flex justify-between items-center border-b-2 border-base-content/10 font-mono">
                             <button
-                                onClick={() => setTab("main")}
-                                className={`px-6 py-3 text-sm border-b-2 -mb-0.5 transition-colors
-                                    ${tab === "main"
-                                        ? "border-primary text-base-content"
-                                        : "border-transparent text-base-content/40 hover:text-base-content/70"}`}
+                                onClick={() => setMobileSearchOpen(prev => !prev)}
+                                className="btn btn-ghost btn-square md:hidden"
+                                aria-label="Open search"
                             >
-                                Main
+                                <Search className="size-6" />
                             </button>
 
-                            <button
-                                onClick={() => setTab("contributors")}
-                                className={`px-6 py-3 text-sm border-b-2 -mb-0.5 transition-colors
-                                    ${tab === "contributors"
-                                        ? "border-primary text-base-content"
-                                        : "border-transparent text-base-content/40 hover:text-base-content/70"}`}
-                            >
-                                Contributors
-                            </button>
+                            <div className="flex">
+                                <button
+                                    onClick={() => setTab("main")}
+                                    className={`px-6 py-3 text-sm border-b-2 -mb-0.5 transition-colors
+                                        ${tab === "main"
+                                            ? "border-primary text-base-content"
+                                            : "border-transparent text-base-content/40 hover:text-base-content/70"}`}
+                                >
+                                    Main
+                                </button>
+
+                                <button
+                                    onClick={() => setTab("contributors")}
+                                    className={`px-6 py-3 text-sm border-b-2 -mb-0.5 transition-colors
+                                        ${tab === "contributors"
+                                            ? "border-primary text-base-content"
+                                            : "border-transparent text-base-content/40 hover:text-base-content/70"}`}
+                                >
+                                    Contributors
+                                </button>
+                            </div>
                         </div>
+
+                        {((mobileSearchOpen || searchQuery !== "") && isHomePage) && (
+                            <div className="md:hidden border-b-2 border-base-content/10">
+                                <SearchBar showAllIfEmpty={false} />
+                            </div>
+                        )}
 
                         {/* Content */}
                         <div className="grow flex flex-col items-center">
