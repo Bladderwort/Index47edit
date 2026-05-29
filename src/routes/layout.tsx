@@ -40,7 +40,7 @@ export default function Layout() {
                         <img
                             src="/Index47/index47.svg"
                             alt="Index 47 Logo"
-                            className="h-24 md:h-40 w-auto mx-auto"
+                            className="h-28 md:h-48 w-auto mx-auto"
                         />
                     </Link>
                     <p style={{ fontSize: '0.95rem' }}>Your FTC sidekick</p>
@@ -86,7 +86,7 @@ export default function Layout() {
                         <img
                             src="/Index47/index47.svg"
                             alt="Index 47 Logo"
-                            className="h-20 w-auto mx-auto"
+                            className="h-28 w-auto mx-auto"
                         />
                     </Link>
                     <p style={{ fontSize: '0.95rem' }}>Your FTC sidekick</p>
@@ -126,7 +126,7 @@ export default function Layout() {
 
                     {((mobileSearchOpen || searchQuery !== "")) && (
                         <div className="px-4 pb-4">
-                            <SearchBar showAllIfEmpty={false} />
+                            <SearchBar showAllIfEmpty={false} hideResultsWhenSearching />
                         </div>
                     )}
                 </div>
@@ -155,7 +155,7 @@ export default function Layout() {
                             </button>
                         </div>
 
-                        <div className="grow flex flex-col items-center">
+                        <div className={`grow flex flex-col items-center ${searchQuery ? 'hidden md:flex' : ''}`}>
                             {tab === "main" && <Outlet />}
 
                             {tab === "contributors" && (
