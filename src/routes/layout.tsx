@@ -107,27 +107,29 @@ export default function Layout() {
                         >
                             <Search className="size-6" />
                         </button>
-                        <div className="flex">
-                            <button
-                                onClick={() => setTab("main")}
-                                className={`px-4 py-2 text-sm border-b-2 -mb-0.5 transition-colors
-                                    ${tab === "main"
-                                        ? "border-primary text-base-content"
-                                        : "border-transparent text-base-content/40 hover:text-base-content/70"}`}
-                            >
-                                Main
-                            </button>
+                        {isHomePage ? (
+                            <div className="flex">
+                                <button
+                                    onClick={() => setTab("main")}
+                                    className={`px-4 py-2 text-sm border-b-2 -mb-0.5 transition-colors
+                                        ${tab === "main"
+                                            ? "border-primary text-base-content"
+                                            : "border-transparent text-base-content/40 hover:text-base-content/70"}`}
+                                >
+                                    Main
+                                </button>
 
-                            <button
-                                onClick={() => setTab("contributors")}
-                                className={`px-4 py-2 text-sm border-b-2 -mb-0.5 transition-colors
-                                    ${tab === "contributors"
-                                        ? "border-primary text-base-content"
-                                        : "border-transparent text-base-content/40 hover:text-base-content/70"}`}
-                            >
-                                Contributors
-                            </button>
-                        </div>
+                                <button
+                                    onClick={() => setTab("contributors")}
+                                    className={`px-4 py-2 text-sm border-b-2 -mb-0.5 transition-colors
+                                        ${tab === "contributors"
+                                            ? "border-primary text-base-content"
+                                            : "border-transparent text-base-content/40 hover:text-base-content/70"}`}
+                                >
+                                    Contributors
+                                </button>
+                            </div>
+                        ) : null}
                     </div>
 
                     {((mobileSearchOpen || searchQuery !== "")) && (
