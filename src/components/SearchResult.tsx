@@ -18,7 +18,7 @@ export default function SearchResult({
                 day: "numeric",
                 year: "numeric"
             }),
-        ["Last Updated", date]
+        [date]
     );
 
     return (
