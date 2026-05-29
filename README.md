@@ -18,6 +18,7 @@ For all details about this repository, review the content on the main page of th
   [__Davis Luxenberg__](https://github.com/BeepBot99) Beta Testing Lead\
   [__Ishika Saini__](https://github.com/ish-that-a-wish) UI/Design Lead\
   [__Mohit Patil__](https://github.com/MomohitPatil) Collaboration Lead
+  Credits to MikeyIsANerd for logo and favicon
 
 
 
