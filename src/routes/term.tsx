@@ -7,6 +7,12 @@ export default function Term() {
     console.log('terms slugs:', terms.map(t => t.slug));
     const term = terms.find(term => term.slug == slug);
 
+    const formattedDate = new Date(term?.lastModified ?? Date.now()).toLocaleDateString("en-US", {
+        month: "long",
+        day: "numeric",
+        year: "numeric"
+    });
+
     return term ? (
         <div className="flex justify-center w-full p-8">
             <div className="w-full max-w-4xl">
@@ -18,6 +24,10 @@ export default function Term() {
                     className="prose prose-lg mx-auto"
                     dangerouslySetInnerHTML={{__html: term.content}}
                 ></article>
+
+                <p className="mt-8 text-sm italic text-base-content/60">
+                    Last updated {formattedDate}
+                </p>
             </div>
         </div>
     ) : (
