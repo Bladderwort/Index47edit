@@ -29,6 +29,12 @@ export default function Layout() {
         });
     });
 
+    useEffect(() => {
+        if (mobileSearchOpen) {
+            setMobileSearchOpen(false);
+        }
+    }, [location.pathname]);
+
     return (
         <div className="flex min-h-screen flex-col md:flex-row">
 
@@ -126,7 +132,7 @@ export default function Layout() {
 
                     {((mobileSearchOpen || searchQuery !== "")) && (
                         <div className="px-4 pb-4">
-                            <SearchBar showAllIfEmpty={false} hideResultsWhenSearching />
+                            <SearchBar showAllIfEmpty={false} hideResultsWhenSearching={!mobileSearchOpen} />
                         </div>
                     )}
                 </div>
