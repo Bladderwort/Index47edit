@@ -53,6 +53,13 @@ h1 {
 .prose img {
     margin-left: auto;
     margin-right: auto;
+    max-width: 100%;
+    height: auto;
+}
+.prose iframe,
+.prose video {
+    max-width: 100%;
+    height: auto;
 }
 .prose strong {
     color: #d9d9d9;

@@ -18,7 +18,7 @@ const content = `
 
 export default function Index() {
     return (
-        <div className="p-8 max-w-3xl mx-auto">
+        <div className="p-6 md:p-8 max-w-3xl mx-auto">
             <div className="flex justify-center mb-8">
                 <img src="/Index47/i47.svg" alt="Index47" className="h-24 w-auto" />
             </div>

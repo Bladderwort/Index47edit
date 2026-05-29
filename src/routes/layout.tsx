@@ -26,17 +26,17 @@ export default function Layout() {
     });
 
     return (
-        <div className="flex min-h-screen">
+        <div className="flex min-h-screen flex-col md:flex-row">
 
             {/* Sidebar */}
-            <div className="flex sticky top-0 h-screen min-w-7/24 flex-col bg-base-200 border-r-2 border-base-content/10">
+            <div className="flex flex-col w-full md:w-auto md:sticky md:top-0 md:h-screen md:min-w-7/24 bg-base-200 border-b-2 border-base-content/10 md:border-b-0 md:border-r-2">
 
                 <div className="p-4 border-b-2 border-base-content/10 text-center">
-                    <Link to="/" className="btn btn-ghost p-8 uppercase font-mono">
+                    <Link to="/" className="btn btn-ghost p-6 md:p-8 uppercase font-mono w-full">
                         <img
                             src="/Index47/index47.svg"
                             alt="Index 47 Logo"
-                            className="h-40 w-auto"
+                            className="h-24 md:h-40 w-auto mx-auto"
                         />
                     </Link>
                     <p style={{ fontSize: '0.95rem' }}>Your FTC sidekick</p>
@@ -123,7 +123,7 @@ export default function Layout() {
                                     </div>
 
                                     <div className="p-10 font-mono">
-                                        <div className="grid grid-cols-2 gap-16">
+                                        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16">
 
                                             {/* Developers */}
                                             <div>
