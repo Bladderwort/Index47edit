@@ -134,7 +134,7 @@ export default function Layout() {
                             {tab === "contributors" && (
                                 <>
                                     {/* ONLY logo here */}
-                                    <div className="p-6">
+                                    <div className="p-6 hidden md:flex justify-center">
                                         <img
                                             src="/Index47/i47.svg"
                                             alt="Index 47 Logo"
