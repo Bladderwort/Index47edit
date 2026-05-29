@@ -81,59 +81,85 @@ export default function Layout() {
             {/* Main Content */}
             <div className="grow flex flex-col">
 
-                {isHomePage ? (
-                    <>
-                        {/* Tabs */}
-                        <div className="flex justify-between items-center border-b-2 border-base-content/10 font-mono">
+                <div className="md:hidden p-4 border-b-2 border-base-content/10 text-center">
+                    <Link to="/" className="btn btn-ghost p-4 uppercase font-mono w-full">
+                        <img
+                            src="/Index47/index47.svg"
+                            alt="Index 47 Logo"
+                            className="h-20 w-auto mx-auto"
+                        />
+                    </Link>
+                    <p style={{ fontSize: '0.95rem' }}>Your FTC sidekick</p>
+                </div>
+
+                <div className="md:hidden border-b-2 border-base-content/10">
+                    <div className="flex justify-between items-center p-3 font-mono">
+                        <button
+                            onClick={() => setMobileSearchOpen(prev => !prev)}
+                            className="btn btn-ghost btn-square"
+                            aria-label="Open search"
+                        >
+                            <Search className="size-6" />
+                        </button>
+                        <div className="flex">
                             <button
-                                onClick={() => setMobileSearchOpen(prev => !prev)}
-                                className="btn btn-ghost btn-square md:hidden"
-                                aria-label="Open search"
+                                onClick={() => setTab("main")}
+                                className={`px-4 py-2 text-sm border-b-2 -mb-0.5 transition-colors
+                                    ${tab === "main"
+                                        ? "border-primary text-base-content"
+                                        : "border-transparent text-base-content/40 hover:text-base-content/70"}`}
                             >
-                                <Search className="size-6" />
+                                Main
                             </button>
 
-                            <div className="flex">
-                                <button
-                                    onClick={() => setTab("main")}
-                                    className={`px-6 py-3 text-sm border-b-2 -mb-0.5 transition-colors
-                                        ${tab === "main"
-                                            ? "border-primary text-base-content"
-                                            : "border-transparent text-base-content/40 hover:text-base-content/70"}`}
-                                >
-                                    Main
-                                </button>
+                            <button
+                                onClick={() => setTab("contributors")}
+                                className={`px-4 py-2 text-sm border-b-2 -mb-0.5 transition-colors
+                                    ${tab === "contributors"
+                                        ? "border-primary text-base-content"
+                                        : "border-transparent text-base-content/40 hover:text-base-content/70"}`}
+                            >
+                                Contributors
+                            </button>
+                        </div>
+                    </div>
 
-                                <button
-                                    onClick={() => setTab("contributors")}
-                                    className={`px-6 py-3 text-sm border-b-2 -mb-0.5 transition-colors
-                                        ${tab === "contributors"
-                                            ? "border-primary text-base-content"
-                                            : "border-transparent text-base-content/40 hover:text-base-content/70"}`}
-                                >
-                                    Contributors
-                                </button>
-                            </div>
+                    {((mobileSearchOpen || searchQuery !== "")) && (
+                        <div className="px-4 pb-4">
+                            <SearchBar showAllIfEmpty={false} />
+                        </div>
+                    )}
+                </div>
+
+                {isHomePage ? (
+                    <>
+                        <div className="hidden md:flex justify-end border-b-2 border-base-content/10 font-mono">
+                            <button
+                                onClick={() => setTab("main")}
+                                className={`px-6 py-3 text-sm border-b-2 -mb-0.5 transition-colors
+                                    ${tab === "main"
+                                        ? "border-primary text-base-content"
+                                        : "border-transparent text-base-content/40 hover:text-base-content/70"}`}
+                            >
+                                Main
+                            </button>
+
+                            <button
+                                onClick={() => setTab("contributors")}
+                                className={`px-6 py-3 text-sm border-b-2 -mb-0.5 transition-colors
+                                    ${tab === "contributors"
+                                        ? "border-primary text-base-content"
+                                        : "border-transparent text-base-content/40 hover:text-base-content/70"}`}
+                            >
+                                Contributors
+                            </button>
                         </div>
 
-                        {((mobileSearchOpen || searchQuery !== "") && isHomePage) && (
-                            <div className="md:hidden border-b-2 border-base-content/10">
-                                <SearchBar showAllIfEmpty={false} />
-                            </div>
-                        )}
-
-                        {/* Content */}
                         <div className="grow flex flex-col items-center">
+                            {tab === "main" && <Outlet />}
 
-                            {/* MAIN */}
-                            {tab === "main" && (
-                                <Outlet />
-                            )}
-
-                            {/* CONTRIBUTORS */}
                             {tab === "contributors" && (
                                 <>
-                                    {/* ONLY logo here */}
                                     <div className="p-6 hidden md:flex justify-center">
                                         <img
                                             src="/Index47/i47.svg"
@@ -144,8 +170,6 @@ export default function Layout() {
 
                                     <div className="p-10 font-mono">
                                         <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16">
-
-                                            {/* Developers */}
                                             <div>
                                                 <h1 className="text-3xl font-bold mb-2">
                                                     Developers
@@ -163,7 +187,6 @@ export default function Layout() {
                                                 </div>
                                             </div>
 
-                                            {/* Others */}
                                             <div>
                                                 <h1 className="text-3xl font-bold mb-2">
                                                     Other contributors
@@ -185,7 +208,6 @@ export default function Layout() {
                                                     ))}
                                                 </ul>
                                             </div>
-
                                         </div>
                                     </div>
                                 </>
