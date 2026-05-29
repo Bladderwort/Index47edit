@@ -1,23 +1,16 @@
 ## About
-
-Index47 was founded in May 2026 by programmers from FTC Team 13100,  known as the 47 Beavers, hence the name “Index47” was derived. Since then, many contributors outside the team have regularly helped expand the project. It was created after observing that much of the FTC community lacks a centralized resource for references, acronyms, and commonly used libraries.
-
-## Usage
-
-To use Index47, type in a search or acronym in the search bar to show the desired content
-that will include a whole page on the topic on the right hand side, you can then re-search 
-on the left search bar. To return to this page, simply click the Index47 logo.
+For all details about this repository, review the content on the main page of the Index47 website
 
 ## How to contribute
-1. Join the [__discord__](https://discord.gg/dAJUWgdun2) to communicate your thoughts
+1. Join the [__discord__](https://discord.gg/dAJUWgdun2) to join our team
 2. Fork the [__repository__](https://github.com/index47ftc/index47v1)
-3. Copy the content in `[abbreviation].md` file from the template folder
-3. Paste it into a new file in __content/terms__ named `[abbreviation].md` where an acronym is favored if there is one.
-4. Write out your content and replace all []s with the appropriate content of your search
-5. If your search doesn't have acronyms, put in a simplified version of the word as an aliase (e.g. __Next__ for __NextFTC__)
-6. Searches are required to have at least 1 image, scale the image using `width` to adjust sizing
-7. Add your name to the __Other Contributors__ section of `README.md` as shown with your github details
-8. Submit a pull request to [__repository__](https://github.com/index47ftc/index47v1)
+3. Copy ALL the content in `[abbreviation].md` file from the `template` folder
+3. Paste it into a new file in __content/terms__ named `[abbreviation].md` where an acronym is favored if there is one
+4. Write out your content and replace all [] with the appropriate content of your search
+6. Searches are required to have at least 1 image put your image in the `[abbreviation].png` format and put inside the `public` folder
+7. scale the image using `width` to adjust sizing
+8. Add your name (discord) to line 8 of `layout.tsx` found in the `routes` folder tab 
+9. Submit a pull request to [__repository__](https://github.com/index47ftc/index47v1)
 
 ## Developers
   
@@ -27,13 +20,7 @@ on the left search bar. To return to this page, simply click the Index47 logo.
   [__Mohit Patil__](https://github.com/MomohitPatil) Collaboration Lead
 
 
-## Other Contributors
 
-  [NotTacos](https://github.com/NotTacos2)\
-  [Ducks](https://github.com/Duck-things)\
-  [Zammaloid](https://github.com/X2L1)
-  [Mikey](https://github.com/MikeyIsANerd)
-  [DanTheCoder](https://github.com/Professor348)
 
 
 
