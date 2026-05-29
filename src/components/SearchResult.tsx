@@ -23,12 +23,12 @@ export default function SearchResult({
 
     return (
         <Link to={`/${slug}`} className="hover:opacity-75 transition duration-250 hover:scale-98">
-            <li className="list-row">
-                <div className="list-col-grow">
-                    <div>{title}</div>
-                <div className="text-[0.47rem] uppercase font-semibold italic text-[#d9d9d9]">
-                    Last Updated on {formattedDate}
-                        </div>
+            <li className="list-row gap-4">
+                <div className="list-col-grow flex flex-col gap-1">
+                    <div className="font-semibold">{title}</div>
+                    <div className="text-[0.7rem] uppercase font-semibold italic text-[#d9d9d9]">
+                        Last updated {formattedDate}
+                    </div>
                 </div>
                 <span className="btn btn-square btn-ghost">
                     <ArrowRight className="size-6" />
