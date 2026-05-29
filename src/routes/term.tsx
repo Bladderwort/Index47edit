@@ -22,7 +22,7 @@ export default function Term() {
         </div>
     ) : (
         <div className="flex items-center justify-center h-full">
-            <span>404 bum</span>
+            <span>404 not found, please refresh</span>
         </div>
     );
 }
