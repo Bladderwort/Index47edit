@@ -17,7 +17,7 @@ For all details about this repository, review the content on the main page of th
   [__Sid Shah__](https://github.com/siddharth-shah121) Lead Developer\
   [__Davis Luxenberg__](https://github.com/BeepBot99) Beta Testing Lead\
   [__Ishika Saini__](https://github.com/ish-that-a-wish) UI/Design Lead\
-  [__Mohit Patil__](https://github.com/MomohitPatil) Collaboration Lead
+  [__Mohit Patil__](https://github.com/MomohitPatil) Workflow Lead\
   Credits to MikeyIsANerd for logo and favicon
 
 
