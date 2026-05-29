@@ -92,7 +92,7 @@ export default function Layout() {
                         <img
                             src="/Index47/index47.svg"
                             alt="Index 47 Logo"
-                            className="h-28 w-auto mx-auto"
+                            className="h-32 w-auto mx-auto"
                         />
                     </Link>
                     <p style={{ fontSize: '0.95rem' }}>Your FTC sidekick</p>
