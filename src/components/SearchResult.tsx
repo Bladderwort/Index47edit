@@ -26,7 +26,7 @@ export default function SearchResult({
             <li className="list-row gap-4">
                 <div className="list-col-grow flex flex-col gap-1">
                     <div className="font-semibold">{title}</div>
-                    <div className="text-[0.7rem] uppercase font-semibold italic text-[#d9d9d9]">
+                    <div className="text-[0.6rem] uppercase font-semibold italic text-[#d9d9d9]">
                         Last updated {formattedDate}
                     </div>
                 </div>
