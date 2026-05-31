@@ -1,17 +1,28 @@
 import {defineConfig, defineSchema, s} from "velite";
 import paths from "path";
-import simpleGit from "simple-git";
+import simpleGit, {type DefaultLogFields, type ListLogLine} from "simple-git";
+import gfm from "remark-gfm";
+import smartypants from "remark-smartypants";
+import autolinkHeadings, {type Options as AutolinkHeadingsOptions} from "rehype-autolink-headings";
+import externalLinks, {type Options as ExternalLinksOptions} from "rehype-external-links";
+import slug from "rehype-slug";
+import highlight, {type Options as HighlightOptions} from "rehype-highlight";
 
 const git = simpleGit();
 
-const lastModified = defineSchema(() =>
-    s
-        .custom<string | undefined>(i => i == undefined || typeof i === "string")
-        .transform<string>(async (_, {meta}) => {
-            const log = await git.log({file: meta.path, maxCount: 1});
-            return new Date(log.latest?.date || Date.now()).toISOString();
-        })
-);
+function gitLog<T>(transformer: (log: DefaultLogFields & ListLogLine) => T) {
+    return defineSchema(() =>
+        s
+            .custom<T | undefined>(() => true)
+            .transform<T>(async (_, {meta}) => {
+                const log = await git.log({file: meta.path, maxCount: 1});
+                return transformer(log.latest!!);
+            })
+    );
+}
+
+const lastModified = gitLog(log => new Date(log.date || Date.now()).toISOString());
+const lastModifiedBy = gitLog(log => log.author_name);
 
 export default defineConfig({
     collections: {
@@ -23,8 +34,45 @@ export default defineConfig({
                 aliases: s.string().array().default([]),
                 content: s.markdown(),
                 slug: s.path().transform<string>(path => paths.basename(path)),
-                lastModified: lastModified()
+                lastModified: lastModified(),
+                lastModifiedBy: lastModifiedBy()
+            })
+        },
+        home: {
+            name: "Home",
+            pattern: "home.md",
+            single: true,
+            schema: s.object({
+                content: s.markdown()
+            })
+        },
+        contributing: {
+            name: "Contributing",
+            pattern: "contributing.md",
+            single: true,
+            schema: s.object({
+                content: s.markdown()
             })
         }
+    },
+    markdown: {
+        remarkPlugins: [gfm, smartypants as any],
+        rehypePlugins: [
+            slug,
+            [
+                autolinkHeadings,
+                {
+                    behavior: "wrap"
+                } satisfies AutolinkHeadingsOptions
+            ],
+            [
+                externalLinks,
+                {
+                    target: "_blank",
+                    rel: ["noopener", "noreferrer"]
+                } satisfies ExternalLinksOptions
+            ],
+            [highlight, {} satisfies HighlightOptions]
+        ]
     }
 });

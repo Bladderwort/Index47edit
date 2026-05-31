@@ -1,38 +1,42 @@
 import {useParams} from "react-router";
 import {terms} from "../../.velite";
+import {Helmet} from "react-helmet-async";
+import Footer from "../components/Footer";
 
 export default function Term() {
     const {slug} = useParams();
-    console.log('slug:', slug);
-    console.log('terms slugs:', terms.map(t => t.slug));
+
     const term = terms.find(term => term.slug == slug);
 
-    const formattedDate = new Date(term?.lastModified ?? Date.now()).toLocaleDateString("en-US", {
+    const date = new Date(term?.lastModified ?? Date.now()).toLocaleDateString("en-US", {
         month: "long",
         day: "numeric",
         year: "numeric"
     });
 
-    return term ? (
-        <div className="flex justify-center w-full p-8">
-            <div className="w-full max-w-4xl">
-                <h1 className="text-4xl font-bold mb-8 text-center">
-                    {term.title}
-                </h1>
-
-                <article
-                    className="prose prose-lg mx-auto"
-                    dangerouslySetInnerHTML={{__html: term.content}}
-                ></article>
-
-                <p className="mt-8 text-sm italic text-base-content/60">
-                    Last updated {formattedDate}
-                </p>
+    return (
+        <>
+            <Helmet>
+                <title>{`${term?.title ?? "404"} | Index47`}</title>
+            </Helmet>
+            <div className="grow">
+                <div className="p-8 overflow-y-auto min-h-0 max-h-screen w-full pb-20">
+                    {term && (
+                        <div className="max-w-3xl mx-auto">
+                            <h1 className="text-4xl font-bold mb-8 text-center">{term.title}</h1>
+                            <article
+                                className="prose prose-lg"
+                                dangerouslySetInnerHTML={{__html: term.content}}
+                            />
+                            <div className="divider"></div>
+                            <p className="italic opacty-50">
+                                Last updated on {date} by {term.lastModifiedBy}
+                            </p>
+                        </div>
+                    )}
+                </div>
+                <Footer />
             </div>
-        </div>
-    ) : (
-        <div className="flex items-center justify-center h-full">
-            <span>404 not found, please refresh</span>
-        </div>
+        </>
     );
 }

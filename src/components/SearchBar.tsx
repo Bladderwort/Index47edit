@@ -6,8 +6,9 @@ import {terms} from "../../.velite";
 import {useAtom} from "jotai";
 import {searchQueryAtom} from "../lib/state";
 import Fuse from "fuse.js";
+import {Link} from "react-router";
 
-export default function SearchBar({ showAllIfEmpty = true, hideResultsWhenSearching = false }: { showAllIfEmpty?: boolean; hideResultsWhenSearching?: boolean }) {
+export default function SearchBar() {
     const searchBar = useRef<HTMLInputElement>(null);
     useHotkeys("slash", e => {
         e.preventDefault();
@@ -26,66 +27,64 @@ export default function SearchBar({ showAllIfEmpty = true, hideResultsWhenSearch
 
     const [searchQuery, setSearchQuery] = useAtom(searchQueryAtom);
 
-    const searchResults = useMemo(() => fuse.search(searchQuery), [searchQuery, fuse]);
     const hasQuery = searchQuery.trim().length > 0;
-    const showResults = (showAllIfEmpty || hasQuery) && !(hideResultsWhenSearching && hasQuery);
+
+    const searchResults = useMemo(
+        () =>
+            hasQuery
+                ? fuse.search(searchQuery).map(result => result.item)
+                : terms.toSorted(
+                      (a, b) =>
+                          new Date(b.lastModified).getTime() - new Date(a.lastModified).getTime()
+                  ),
+        [searchQuery, fuse]
+    );
 
     return (
         <div className="flex min-h-0 flex-1 flex-col p-4">
-            <div className="relative flex w-full">
-                <label className="floating-label grow">
-                    <span>Search</span>
-                    <div className="input w-full flex items-center">
-                        <Search className="opacity-50 size-5 mr-1" />
-                        <input
-                            value={searchQuery}
-                            onChange={e => setSearchQuery(e.target.value)}
-                            ref={searchBar}
-                            type="text"
-                            placeholder="Search"
-                            className="grow"
+            <label className="floating-label">
+                <span>Search</span>
+                <div className="input w-full flex items-center">
+                    <Search className="opacity-50 size-5 mr-1" />
+                    <input
+                        value={searchQuery}
+                        onChange={e => setSearchQuery(e.target.value)}
+                        ref={searchBar}
+                        type="text"
+                        placeholder="Search"
+                        className="grow"
+                    />
+                    {searchQuery === "" && <kbd className="kbd kbd-md select-none ml-auto">/</kbd>}
+                    {searchQuery !== "" && (
+                        <button
+                            onClick={() => setSearchQuery("")}
+                            className="btn btn-ghost btn-sm btn-square translate-x-1">
+                            <X className="size-5" />
+                        </button>
+                    )}
+                </div>
+            </label>
+
+            {searchResults.length === 0 && hasQuery ? (
+                <div className="mt-4 p-8 border border-base-content/10 bg-base-300 rounded-box text-center">
+                    No results,{" "}
+                    <Link to="/contributing" className="link-info no-underline hover:underline">
+                        add a new page
+                    </Link>
+                    .
+                </div>
+            ) : (
+                <ul className="list mt-4 min-h-0 overflow-y-auto border border-base-content/10 bg-base-300 rounded-box">
+                    {searchResults.map(term => (
+                        <SearchResult
+                            key={term.slug}
+                            title={term.title}
+                            slug={term.slug}
+                            date={term.lastModified}
                         />
-                        {searchQuery === "" && <kbd className="kbd kbd-md select-none ml-auto">/</kbd>}
-                    </div>
-                </label>
-
-                {searchQuery !== "" && (
-                    <button
-                        onClick={() => setSearchQuery("")}
-                        className="btn btn-ghost btn-sm btn-square absolute right-2 top-1/2 -translate-y-1/2"
-                    >
-                        <X className="size-5" />
-                    </button>
-                )}
-            </div>
-
-            {showResults ? (
-                searchResults.length === 0 && hasQuery ? (
-                    <div className="mt-4 p-8 border border-base-content/10 bg-base-300 rounded-box text-center">
-                        <p className="opacity-50 italic">Nothing Found</p>
-                    </div>
-                ) : (
-                    <ul className="list mt-4 min-h-0 overflow-y-auto border border-base-content/10 bg-base-300 rounded-box">
-                        {hasQuery
-                            ? searchResults.map(term => (
-                                <SearchResult
-                                    key={term.item.slug}
-                                    title={term.item.title}
-                                    slug={term.item.slug}
-                                    date={term.item.lastModified}
-                                />
-                            ))
-                            : terms.map(term => (
-                                <SearchResult
-                                    key={term.slug}
-                                    title={term.title}
-                                    slug={term.slug}
-                                    date={term.lastModified}
-                                />
-                            ))}
-                    </ul>
-                )
-            ) : null}
+                    ))}
+                </ul>
+            )}
         </div>
     );
 }

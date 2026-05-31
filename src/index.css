@@ -1,36 +1,34 @@
-@import url("https://fonts.googleapis.com/css2?family=Itim&display=swap");
+@import "highlight.js/styles/night-owl.min.css";
 @import "tailwindcss";
 @plugin "@tailwindcss/typography";
-@plugin "daisyui" {
-    themes: index47 --default;
-}
+@plugin "daisyui";
 @plugin "daisyui/theme" {
     name: "index47";
     default: true;
-    prefersdark: false;
-"color-scheme": "light";
-    --color-base-100: #3d3d3d;
-    --color-base-200: #1e1e1e;
-    --color-base-300: #3d3d3d;
-    --color-base-content: #9EFFBD;
-    --color-primary: #999999;
-    --color-primary-content: #8c8c8c;
-    --color-secondary: #8c8c8c;
-    --color-secondary-content: #d9d9d9;
-    --color-accent: #8c8c8c;
-    --color-accent-content: #9EFFBD;
-    --color-neutral: #8c8c8c;
-    --color-neutral-content: #9EFFBD;
-    --color-info: #9EFFBD;
-    --color-info-content: #04200c;
-    --color-success: #9EFFBD;
-    --color-success-content: #04200c;
-    --color-warning: #9EFFBD;
-    --color-warning-content: #04200c;
-    --color-error: #9EFFBD;
-    --color-error-content: #04200c;
+    prefersdark: true;
+    color-scheme: "dark";
+    --color-base-100: oklch(20.768% 0.039 154.31);
+    --color-base-200: oklch(19.314% 0.037 154.31);
+    --color-base-300: oklch(17.86% 0.034 154.31);
+    --color-base-content: oklch(84.153% 0.007 154.31);
+    --color-primary: oklch(75.351% 0.138 232.661);
+    --color-primary-content: oklch(15.07% 0.027 232.661);
+    --color-secondary: oklch(68.011% 0.158 276.934);
+    --color-secondary-content: oklch(13.602% 0.031 276.934);
+    --color-accent: oklch(72.36% 0.176 350.048);
+    --color-accent-content: oklch(14.472% 0.035 350.048);
+    --color-neutral: oklch(35% 0.036 154.31);
+    --color-neutral-content: oklch(85.589% 0.007 154.31);
+    --color-info: oklch(92.28% 0.1295 153.45);
+    --color-info-content: oklch(0% 0 0);
+    --color-success: oklch(78.452% 0.132 181.911);
+    --color-success-content: oklch(15.69% 0.026 181.911);
+    --color-warning: oklch(83.242% 0.139 82.95);
+    --color-warning-content: oklch(16.648% 0.027 82.95);
+    --color-error: oklch(71.785% 0.17 13.118);
+    --color-error-content: oklch(14.357% 0.034 13.118);
     --radius-selector: 1rem;
-    --radius-field: 2rem;
+    --radius-field: 0.5rem;
     --radius-box: 1rem;
     --size-selector: 0.25rem;
     --size-field: 0.25rem;
@@ -39,28 +37,14 @@
     --noise: 0;
 }
 
-.prose {
-    font-family: "Itim", cursive;
+.prose a:not(.not-prose) {
+    @apply link-info no-underline hover:underline;
 }
-.prose h2 {
-    color: #d9d9d9;
-    font-family: ui-sans-serif, system-ui, sans-serif;
+
+.hljs {
+    @apply bg-transparent p-0!;
 }
-h1 {
-    color: #d9d9d9;
-    font-family: ui-sans-serif, system-ui, sans-serif;
-}
-.prose img {
-    margin-left: auto;
-    margin-right: auto;
-    max-width: 100%;
-    height: auto;
-}
-.prose iframe,
-.prose video {
-    max-width: 100%;
-    height: auto;
-}
-.prose strong {
-    color: #d9d9d9;
+
+pre:has(code.hljs) {
+    @apply bg-base-300 border-2 border-base-content/10;
 }
