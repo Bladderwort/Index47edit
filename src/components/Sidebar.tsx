@@ -27,7 +27,7 @@ export default function Sidebar() {
                 </a>
 
                 <a
-                    href="https://discord.gg/dAJUWgdun2"
+                    href="https://discord.gg/e7F3Ku7Xuu"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="btn btn-outline btn-neutral shadow-none btn-square">

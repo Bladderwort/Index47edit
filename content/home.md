@@ -12,4 +12,4 @@ To begin contributing, see the [contributing](/contributing) tab for step-by-ste
 
 ## Developers and Helpers
 
-All our developers and helpers can be found in the [contributors](/contributors) tab. To join our contributing team, join our [Discord server](https://discord.gg/dAJUWgdun2).
+All our developers and helpers can be found in the [contributors](/contributors) tab. To join our contributing team, join our [discord server](https://discord.gg/e7F3Ku7Xuu).
