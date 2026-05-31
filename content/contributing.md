@@ -3,7 +3,7 @@
 - Have [Git](https://git-scm.org) installed.
 - Have [Bun](https://bun.sh) installed.
 - Have a code editor/IDE installed. ([Visual Studio Code](https://code.visualstudio.com) or [Webstorm](https://www.jetbrains.com/webstorm/) is recommended).
-- Be sure to ask developers in the ([discord](https://discord.gg/e7F3Ku7Xuu) for help with these steps.
+- Be sure to ask developers in the [discord](https://discord.gg/e7F3Ku7Xuu) for help with these steps.
 ## Steps
 
 1.  **Fork the repo** at https://github.com/Index47FTC/Index47.
