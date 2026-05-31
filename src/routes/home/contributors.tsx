@@ -58,9 +58,9 @@ export default function Contributors() {
             <div className="flex flex-wrap gap-4 my-8 not-prose">
                 <Contributor github="MikeyIsANerd" />
                 <Contributor name="DanTheCoder" github="Professor348" />
-                <Contributor name="Achyut Sharma" github="Duck-things" />
+                <Contributor name="Ducks" github="Duck-things" />
                 <Contributor name="NotTacos" github="NotTacos2" />
-                <Contributor name="Xavier Schwartz" github="X2L1" />
+                <Contributor name="Zaamaloid" github="X2L1" />
             </div>
 
             <p>
