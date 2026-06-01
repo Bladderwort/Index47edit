@@ -2,7 +2,7 @@
 
 - Have [Git](https://git-scm.org) installed.
 - Have [Bun](https://bun.sh) installed.
-- Have a code editor/IDE installed. ([Visual Studio Code](https://code.visualstudio.com) or [Webstorm](https://www.jetbrains.com/webstorm/) is recommended).
+- Have a code editor/IDE installed. [Visual Studio Code](https://code.visualstudio.com) or [Webstorm](https://www.jetbrains.com/webstorm/) is recommended.
 - Feel free to ask developers in the [discord](https://discord.gg/e7F3Ku7Xuu) for help with these steps.
 - Usages of AI for content is strictly prohibited and will not be accepted
 
