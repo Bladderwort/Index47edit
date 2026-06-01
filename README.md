@@ -2,24 +2,12 @@
 
 ## About
 
-For all details about this repository, review the content on the main page of the Index47 website
-
-## How to contribute
-
-1. Join the [**discord**](https://discord.gg/dAJUWgdun2) to join our team
-2. Fork the [**repository**](https://github.com/index47ftc/Index47)
-3. Copy ALL the content in `[abbreviation].md` file from the `template` folder
-4. Paste it into a new file in **content/terms** named `[abbreviation].md` where an acronym is favored if there is one
-5. Write out your content and replace all [] with the appropriate content of your search
-6. Searches are required to have at least 1 image put your image in the `[abbreviation].png` format and put inside the `public` folder
-7. scale the image using `width` to adjust sizing
-8. Add your name (discord) to line 8 of `layout.tsx` found in the `routes` folder tab
-9. Submit a pull request to [**repository**](https://github.com/index47ftc/Index47)
+For all details about this repository, including contributing, review the content on the main and contributing tabs of (https://index47.org)
 
 ## Developers
 
-[**Sid Shah**](https://github.com/siddharth-shah121) Lead Developer\
- [**Davis Luxenberg**](https://github.com/BeepBot99) Beta Testing Lead\
- [**Ishika Saini**](https://github.com/ish-that-a-wish) UI/Design Lead\
+[**Sid Shah**](https://github.com/siddharth-shah121) Founder & Lead Developer\
+ [**Davis Luxenberg**](https://github.com/BeepBot99) Website Lead\
+ [**Ishika Saini**](https://github.com/ish-that-a-wish) Operations Lead\
  [**Mohit Patil**](https://github.com/MomohitPatil) Workflow Lead\
  Credits to MikeyIsANerd for logo and favicon
