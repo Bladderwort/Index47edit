@@ -3,8 +3,9 @@
 - Have [Git](https://git-scm.org) installed.
 - Have [Bun](https://bun.sh) installed.
 - Have a code editor/IDE installed. ([Visual Studio Code](https://code.visualstudio.com) or [Webstorm](https://www.jetbrains.com/webstorm/) is recommended).
-- Be sure to ask developers in the [discord](https://discord.gg/e7F3Ku7Xuu) for help with these steps.
-- Any usages of Generative AI for content is **Strictly** prohibited and will not be accepted
+- Feel free to ask developers in the [discord](https://discord.gg/e7F3Ku7Xuu) for help with these steps.
+- Usages of AI for content is strictly prohibited and will not be accepted
+
 ## Steps
 
 1.  **Fork the repo** at https://github.com/Index47FTC/Index47.
