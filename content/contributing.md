@@ -30,6 +30,6 @@
 
 7.  **Commit your changes** in your code editor/IDE or by running `git commit`.
 8.  **Push your changes** in your code editor/IDE or by running `git push`.
-9.  **Add yourself** to `src/routes/home/contributors.tsx`. You deserve it!
+9.  **Add yourself** to `content/contributors.yaml`. You deserve it!
 10. **Create a pull request** at https://github.com/Index47FTC/Index47/compare
 11. **Thank you for contributing** to Index47! Please wait for your changes to be reviewed.

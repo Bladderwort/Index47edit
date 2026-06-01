@@ -1,4 +1,5 @@
 import {Link} from "react-router";
+import {contributors} from "../../../.velite";
 
 function Contributor({name, github, title}: {name?: string; github: string; title?: string}) {
     if (!name) name = github;
@@ -39,14 +40,14 @@ export default function Contributors() {
             <p>Our developers are the core team behind development and maintenance.</p>
 
             <div className="flex flex-wrap gap-4 my-8 not-prose">
-                <Contributor
-                    name="Sid Shah"
-                    github="siddharth-shah121"
-                    title="Founder & Lead Developer"
-                />
-                <Contributor name="Davis Luxenberg" github="BeepBot99" title="Beta Testing Lead" />
-                <Contributor name="Ishika Saini" github="ish-that-a-wish" title="UI/Design Lead" />
-                <Contributor name="Mohit Patil" github="MomohitPatil" title="Workflow Lead" />
+                {contributors.developers.map(developer => (
+                    <Contributor
+                        key={developer.github}
+                        name={developer.name}
+                        github={developer.github}
+                        title={developer.title}
+                    />
+                ))}
             </div>
 
             <h2 id="other-contributors">
@@ -56,11 +57,13 @@ export default function Contributors() {
             <p>Many people who aren't developers also contribute to Index47!</p>
 
             <div className="flex flex-wrap gap-4 my-8 not-prose">
-                <Contributor github="MikeyIsANerd" />
-                <Contributor name="DanTheCoder" github="Professor348" />
-                <Contributor name="Ducks" github="Duck-things" />
-                <Contributor name="NotTacos" github="NotTacos2" />
-                <Contributor name="Zaamaloid" github="X2L1" />
+                {contributors.contributors.map(contributor => (
+                    <Contributor
+                        key={contributor.github}
+                        name={contributor.name}
+                        github={contributor.github}
+                    />
+                ))}
             </div>
 
             <p>
