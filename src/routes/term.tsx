@@ -29,7 +29,7 @@ export default function Term() {
                                 dangerouslySetInnerHTML={{__html: term.content}}
                             />
                             <div className="divider"></div>
-                            <p className="italic opacty-50">
+                            <p className="italic opacity-70">
                                 Last updated on {date} by {term.lastModifiedBy}
                             </p>
                         </div>
