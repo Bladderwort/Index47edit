@@ -7,12 +7,10 @@ export default function Contributing() {
             <Helmet>
                 <title>Contributing | Index47</title>
             </Helmet>
-            <div className="max-w-3xl mx-auto">
-                <article
-                    className="prose prose-lg"
-                    dangerouslySetInnerHTML={{__html: contributing.content}}
-                />
-            </div>
+            <article
+                className="prose prose-lg mx-auto max-w-3xl"
+                dangerouslySetInnerHTML={{__html: contributing.content}}
+            />
         </>
     );
 }

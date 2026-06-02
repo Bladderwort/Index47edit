@@ -21,7 +21,7 @@ export default function Layout() {
     }, []);
 
     return (
-        <div className="flex min-h-screen flex-row">
+        <div className="flex h-screen">
             <Sidebar />
             <Outlet />
         </div>

@@ -9,7 +9,7 @@ export default function Sidebar() {
     const survey = useSurvey();
 
     return (
-        <div className="flex flex-col h-screen w-[calc(100vw*7/24)] bg-base-200 border-base-content/10 border-r-2">
+        <div className="flex flex-col h-full min-w-7/24 bg-base-200 border-base-content/10 border-r-2">
             <div className="p-4 border-b-2 border-base-content/10">
                 <Link to="/" className="btn btn-ghost p-4 flex-col h-auto w-full gap-3">
                     <img src={logo} alt="Index 47 Logo" className="w-40" />
