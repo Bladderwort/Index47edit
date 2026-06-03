@@ -2,7 +2,7 @@
 
 ## About
 
-For all details about this repository, including contributing, review the content on the main and contributing tabs of (https://index47.org)
+For all details about this repository, including contributing, review the content on the main and contributing tabs of [Index47](https://index47.org)
 
 ## Developers
 
