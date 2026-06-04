@@ -5,11 +5,13 @@ import {Link} from "react-router";
 export default function SearchResult({
     title,
     date,
-    slug
+    slug,
+    onClick
 }: {
     title: string;
     date: string;
     slug: string;
+    onClick?: () => void;
 }) {
     const formattedDate = useMemo(
         () =>
@@ -22,7 +24,10 @@ export default function SearchResult({
     );
 
     return (
-        <Link to={`/${slug}`} className="hover:opacity-75 transition duration-250 hover:scale-98">
+        <Link
+            to={`/${slug}`}
+            onClick={onClick}
+            className="hover:opacity-75 transition duration-250 hover:scale-98">
             <li className="list-row">
                 <div className="list-col-grow flex flex-col gap-1">
                     <div className="font-semibold text-md">{title}</div>

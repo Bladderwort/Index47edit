@@ -69,6 +69,7 @@ export default function MobileSearch() {
                                 title={term.title}
                                 slug={term.slug}
                                 date={term.lastModified}
+                                onClick={() => setSearchActive(false)}
                             />
                         ))}
                     </ul>
