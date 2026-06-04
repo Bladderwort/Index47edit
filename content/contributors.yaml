@@ -12,7 +12,8 @@ developers:
     github: MomohitPatil
     title: Workflow Lead
 contributors:
-  - github: MikeyIsANerd
+  - name: Mikey
+    github: MikeyIsANerd
   - name: DanTheCoder
     github: Professor348
   - name: Ducks
