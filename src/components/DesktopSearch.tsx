@@ -7,38 +7,18 @@ import {useAtom} from "jotai";
 import {searchQueryAtom} from "../lib/state";
 import Fuse from "fuse.js";
 import {Link} from "react-router";
+import {useSearch} from "../lib/search";
 
-export default function SearchBar() {
+export default function DesktopSearch() {
     const searchBar = useRef<HTMLInputElement>(null);
     useHotkeys("slash", e => {
         e.preventDefault();
         return searchBar.current?.focus();
     });
 
-    const fuse = useMemo(
-        () =>
-            new Fuse(terms, {
-                keys: ["title", "aliases"],
-                ignoreLocation: true,
-                threshold: 0.3
-            }),
-        []
-    );
-
     const [searchQuery, setSearchQuery] = useAtom(searchQueryAtom);
 
-    const hasQuery = searchQuery.trim().length > 0;
-
-    const searchResults = useMemo(
-        () =>
-            hasQuery
-                ? fuse.search(searchQuery).map(result => result.item)
-                : terms.toSorted(
-                      (a, b) =>
-                          new Date(b.lastModified).getTime() - new Date(a.lastModified).getTime()
-                  ),
-        [searchQuery, fuse]
-    );
+    const searchResults = useSearch(searchQuery);
 
     return (
         <div className="flex min-h-0 flex-1 flex-col p-4">
@@ -54,8 +34,9 @@ export default function SearchBar() {
                         placeholder="Search"
                         className="grow"
                     />
-                    {searchQuery === "" && <kbd className="kbd kbd-md select-none ml-auto">/</kbd>}
-                    {searchQuery !== "" && (
+                    {searchQuery === "" ? (
+                        <kbd className="kbd kbd-md select-none ml-auto">/</kbd>
+                    ) : (
                         <button
                             onClick={() => setSearchQuery("")}
                             className="btn btn-ghost btn-sm btn-square translate-x-1">
@@ -65,7 +46,7 @@ export default function SearchBar() {
                 </div>
             </label>
 
-            {searchResults.length === 0 && hasQuery ? (
+            {searchResults.length === 0 ? (
                 <div className="mt-4 p-8 border border-base-content/10 bg-base-300 rounded-box text-center">
                     No results,{" "}
                     <Link to="/contributing" className="link-info no-underline hover:underline">

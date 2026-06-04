@@ -5,10 +5,10 @@ export default function Footer({absolute = true}: {absolute?: boolean}) {
     return (
         <div
             className={clsx(
-                "border-base-content/10 border-t-2 bg-base-100/50 bottom-0 w-full flex items-center justify-center p-4 backdrop-blur-md z-50",
+                "border-base-content/10 border-t-2 bg-base-100 lg:bg-base-100/50 bottom-0 w-full flex items-center justify-center p-4 lg:backdrop-blur-md z-50",
                 absolute && "absolute"
             )}>
-            <p className="opacity-50 text-center text-sm">
+            <p className="opacity-50 text-center text-xs sm:text-sm">
                 &copy; 2026 Index47. All rights reserved. Licensed under the MIT License. Website
                 made with <Heart className="size-4 inline fill-info -translate-y-0.5 text-info" />
                 &nbsp;by&nbsp;

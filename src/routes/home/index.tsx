@@ -10,7 +10,7 @@ export default function Index() {
                 <title>Index47</title>
             </Helmet>
             <article
-                className="prose prose-lg max-w-3xl mx-auto"
+                className="prose prose-md md:prose-lg max-w-3xl mx-auto"
                 dangerouslySetInnerHTML={{__html: home.content}}
                 onClick={e => {
                     if (!(e.target instanceof Element)) return;

@@ -1,15 +1,17 @@
 import {SiDiscord, SiGithub} from "@icons-pack/react-simple-icons";
-import SearchBar from "./SearchBar";
 import logo from "../assets/index47.svg";
 import {Link} from "react-router";
 import {ClipboardList} from "lucide-react";
 import {useSurvey} from "../lib/tally";
+import {useDevice} from "../lib/responsive";
+import DesktopSearch from "./DesktopSearch";
 
-export default function Sidebar() {
+export default function Navbar() {
     const survey = useSurvey();
+    const {desktop} = useDevice();
 
     return (
-        <div className="flex flex-col h-full min-w-7/24 bg-base-200 border-base-content/10 border-r-2">
+        <div className="bg-base-200 lg:flex lg:flex-col lg:h-full lg:min-w-7/24 lg:border-base-content/10 lg:border-r-2">
             <div className="p-4 border-b-2 border-base-content/10">
                 <Link to="/" className="btn btn-ghost p-4 flex-col h-auto w-full gap-3">
                     <img src={logo} alt="Index 47 Logo" className="w-40" />
@@ -41,7 +43,7 @@ export default function Sidebar() {
                 </button>
             </div>
 
-            <SearchBar />
+            {desktop && <DesktopSearch />}
         </div>
     );
 }

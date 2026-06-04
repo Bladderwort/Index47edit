@@ -1,15 +1,26 @@
 import {Outlet} from "react-router";
 import Footer from "../../components/Footer";
 import Tabs from "../../components/Tabs";
+import Dock from "../../components/Dock";
+import {useDevice} from "../../lib/responsive";
+import MobileSearch from "../../components/MobileSearch";
 
 export default function HomeLayout() {
+    const {desktop} = useDevice();
     return (
-        <div className="grow relative">
-            <Tabs />
-            <div className="px-8 overflow-y-auto max-h-screen py-20">
+        <div className="lg:grow lg:relative">
+            {desktop ? (
+                <Tabs />
+            ) : (
+                <>
+                    <MobileSearch />
+                    <Dock />
+                </>
+            )}
+            <div className="p-8 lg:py-20 lg:overflow-y-auto lg:h-screen">
                 <Outlet />
             </div>
-            <Footer />
+            <Footer absolute={desktop} />
         </div>
     );
 }

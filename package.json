@@ -4,7 +4,7 @@
     "version": "0.0.0",
     "type": "module",
     "scripts": {
-        "dev:vite": "vite",
+        "dev:vite": "vite --host",
         "dev:velite": "velite dev",
         "dev": "bun run --parallel dev:velite dev:vite",
         "build:vite": "vite build",
@@ -21,6 +21,7 @@
         "react-dom": "^19.2.6",
         "react-helmet-async": "^3.0.0",
         "react-hotkeys-hook": "^5.3.2",
+        "react-responsive": "^10.0.1",
         "react-router": "^7.15.1",
         "react-tally": "^0.0.9",
         "rehype-highlight": "^7.0.2"
