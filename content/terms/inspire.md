@@ -2,4 +2,4 @@
 title: Inspire Award
 ---
 
-**Inspire Award** is the highest award a team can receive at an FTC event. It goes to the team that best embodies the full [FIRST](https://www.firstinspires.org/) experience — strong robot performance, a thorough engineering notebook, community outreach, gracious professionalism, and solid teamwork. You can't just be good at one thing to win Inspire — judges are looking for a well-rounded team that excels across the board. Winning Inspire at a qualifier or regional event advances the team to the next level of competition.
+**Inspire Award** is the highest award a team can receive at an FTC event. It goes to the team that best embodies the full [FIRST](https://www.firstinspires.org/) experience which normally includes excellence in outreach, robot game, and gracious professionalism. Introduced in the DECODE season, the inspire award can give 60 ranking points which often results in guaranteed advancement!

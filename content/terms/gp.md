@@ -3,4 +3,4 @@ title: Gracious Professionalism
 aliases: [GP]
 ---
 
-**Gracious Professionalism** is a core value of [FIRST](https://www.firstinspires.org/) that encourages high-quality work, respect for others, and valuing everyone's contributions. In FTC, GP means **helping** other teams in the pits _even if they're your competition_, sharing spare parts, lending tools, and treating volunteers and judges with respect. It's not about being passive — it's about **competing hard while still lifting others up**. Teams that consistently demonstrate GP earn the respect of the entire community and often stand out during judging.
+**Gracious Professionalism** is the core value of [FIRST](https://www.firstinspires.org/) that encourages high-quality work, respect for others, and valuing everyone's contributions while still maintaing a professional conduct. High levels of gracious professionalism can be given awards such as the Inspire Award which earns 60 ranking points! Gracious professionalism lies outside of competition, and can be applied to private team meetings and social media related to FIRST. 
